@@ -1,34 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  User, 
-  Download, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Award, 
-  BookOpen, 
-  Briefcase, 
-  Code, 
-  Heart, 
-  GraduationCap,
-  Microscope,
-  Robot,
-  Users,
-  Trophy,
-  Certificate,
-  Camera,
-  FileText,
-  Lightbulb,
-  TrendingUp,
-  Brain,
-  Zap,
-  Target,
-  Globe,
-  ChevronDown,
-  Menu,
-  X
-} from 'lucide-react';
+import { User, Download, Mail, Phone, MapPin, Linkedin, Award, BookOpen, Briefcase, Code, Heart, GraduationCap, Microscope, Notebook as Robot, Users, Trophy, AlignCenterVertical as Certificate, Camera, FileText, Lightbulb, TrendingUp, Brain, Zap, Target, Globe, ChevronDown, Menu, X } from 'lucide-react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
