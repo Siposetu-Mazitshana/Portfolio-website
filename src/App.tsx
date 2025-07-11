@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Download, Mail, Phone, MapPin, Linkedin, Award, BookOpen, Briefcase, Code, Heart, GraduationCap, Microscope, Notebook as Robot, Users, Trophy, AlignCenterVertical as Certificate, Camera, FileText, Lightbulb, TrendingUp, Brain, Zap, Target, Globe, ChevronDown, Menu, X } from 'lucide-react';
+import { User, Download, Mail, MapPin, Linkedin, Award, BookOpen, Briefcase, Code, Heart, GraduationCap, Microscope, Notebook as Robot, Users, Trophy, AlignCenterVertical as Certificate, Camera, FileText, Lightbulb, TrendingUp, Brain, Zap, Target, Globe, ChevronDown, Menu, X, Github } from 'lucide-react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -796,16 +796,18 @@ function App() {
 
               <div className="bg-white p-8 rounded-2xl shadow-lg flex items-center gap-6">
                 <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="text-white" size={32} />
+                  <Github className="text-white" size={32} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
-                  <p className="text-gray-600 mb-2">Give me a call</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">GitHub</h3>
+                  <p className="text-gray-600 mb-2">View my code and projects</p>
                   <a
-                    href="tel:+27812457431"
+                    href="https://github.com/Siposetu-Mazitshana"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-purple-600 hover:text-purple-700 font-semibold"
                   >
-                    +27 81 245 7431
+                    github.com/Siposetu-Mazitshana
                   </a>
                 </div>
               </div>
@@ -908,10 +910,12 @@ function App() {
                 <Mail size={24} />
               </a>
               <a
-                href="tel:+27812457431"
-                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-200"
+                href="https://github.com/Siposetu-Mazitshana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors duration-200"
               >
-                <Phone size={24} />
+                <Github size={24} />
               </a>
             </div>
           </div>
