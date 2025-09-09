@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Download, Mail, MapPin, Linkedin, Award, BookOpen, Briefcase, Code, Heart, GraduationCap, Microscope, Notebook as Robot, Users, Trophy, AlignCenterVertical as Certificate, Camera, FileText, Lightbulb, TrendingUp, Brain, Zap, Target, Globe, ChevronDown, Menu, X, Github } from 'lucide-react';
+import { User, Download, Mail, MapPin, Linkedin, Award, BookOpen, Briefcase, Code, Heart, GraduationCap, Users, Trophy, Phone, Github, Calendar, Building, Star, CheckCircle, ExternalLink, FileText, Target, Lightbulb, TrendingUp } from 'lucide-react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -11,7 +11,7 @@ function App() {
       setIsScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'resume', 'skills', 'achievements', 'certificates', 'insights', 'gallery', 'contact'];
+      const sections = ['home', 'about', 'experience', 'education', 'skills', 'certificates', 'projects', 'insights', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -39,19 +39,18 @@ function App() {
   };
 
   const exportResume = (format: 'pdf' | 'docx' | 'html') => {
-    // In a real implementation, this would generate and download the resume
     alert(`Exporting resume as ${format.toUpperCase()}... This feature would be implemented with a backend service.`);
   };
 
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'resume', label: 'Resume' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
     { id: 'skills', label: 'Skills' },
-    { id: 'achievements', label: 'Achievements' },
     { id: 'certificates', label: 'Certificates' },
+    { id: 'projects', label: 'Projects' },
     { id: 'insights', label: 'Insights' },
-    { id: 'gallery', label: 'Gallery' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -64,7 +63,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-blue-600">Siposetu Mazitshana</h1>
+              <h1 className="text-2xl font-bold text-blue-600">Sisanda Mazitshana</h1>
             </div>
             
             {/* Desktop Navigation */}
@@ -92,7 +91,7 @@ function App() {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700 hover:text-blue-600 p-2"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? '✕' : '☰'}
               </button>
             </div>
           </div>
@@ -128,15 +127,15 @@ function App() {
               <div className="mb-6">
                 <span className="text-lg text-gray-600 mb-2 block">Hello, I'm</span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                  Siposetu Mihle Lelethu Mazitshana
+                  Sisanda Mazitshana
                 </h1>
                 <p className="text-xl md:text-2xl text-blue-600 font-semibold mb-6">
-                  Biotechnology Professional & AI Technology Specialist
+                  Social Worker & Wellness Coordinator
                 </p>
                 <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-                  Biotechnology Honours graduate with academic distinction and expertise in AI, machine learning, 
-                  and technical support. Passionate about leveraging cutting-edge technology to drive innovation 
-                  in healthcare, research, and community development.
+                  Passionate social work professional with eight years of experience specializing in 
+                  employee health and wellness, trauma-informed care, and community engagement. 
+                  Dedicated to enhancing well-being and fostering supportive environments.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -145,7 +144,7 @@ function App() {
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   Learn More
-                  <ChevronDown size={20} />
+                  <ExternalLink size={20} />
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
@@ -159,13 +158,13 @@ function App() {
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-8 border-white">
                   <img
-                    src="/public/915591705281202643_IMG_8523.jpg"
-                    alt="Siposetu Mazitshana - Professional Headshot"
+                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Sisanda Mazitshana - Professional Headshot"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg">
-                  <Microscope size={32} />
+                  <Heart size={32} />
                 </div>
               </div>
             </div>
@@ -179,7 +178,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Bridging biotechnology and artificial intelligence for innovative solutions
+              Dedicated to making a meaningful difference in people's lives through social work and wellness initiatives
             </p>
           </div>
           
@@ -190,19 +189,19 @@ function App() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Academic Excellence</h3>
               <p className="text-gray-600 leading-relaxed">
-                Graduated Summa Cum Laude with BSc Honours in Biotechnology from UWC, with extensive 
-                research experience in precision medicine, DNA extraction, and PCR analysis.
+                Bachelor of Social Work from University of South Africa (UNISA), with comprehensive 
+                training in counseling, community development, and social intervention strategies.
               </p>
             </div>
             
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6">
-                <Robot className="text-white" size={32} />
+                <Users className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">AI Innovation</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Professional Experience</h3>
               <p className="text-gray-600 leading-relaxed">
-                Certified in machine learning, generative AI, and cloud platforms with 25+ professional 
-                certifications from leading institutions including Stanford, MIT, and Google.
+                Eight years of diverse experience from mining industry wellness programs to 
+                human trafficking survivor support, with expertise in trauma-informed care and crisis intervention.
               </p>
             </div>
             
@@ -212,21 +211,35 @@ function App() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Community Impact</h3>
               <p className="text-gray-600 leading-relaxed">
-                Dedicated to public health initiatives and community service, from HIV/AIDS education 
-                to COVID-19 vaccination coordination, making a positive impact in communities.
+                Committed to community wellness and social justice, from coordinating vaccination programs 
+                to leading student wellness initiatives and supporting vulnerable populations.
               </p>
             </div>
+          </div>
+
+          {/* Profile Summary */}
+          <div className="bg-gray-50 p-8 rounded-2xl">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Profile</h3>
+            <p className="text-gray-700 leading-relaxed text-lg">
+              Passionate and results-driven professional with eight years of experience in social work, 
+              specializing in employee health and wellness within the corporate and higher education sectors. 
+              Skilled in counselling, communication, facilitation, and creating impactful wellness initiatives. 
+              Known for tackling challenges with enthusiasm and adaptability, while continually seeking growth. 
+              Recently worked as a caseworker in trauma-informed care for survivors of human trafficking and 
+              now lead student wellness programs at a top institution, dedicated to enhancing student well-being 
+              and fostering a healthy, supportive environment.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Resume Section with Export Options */}
-      <section id="resume" className="py-20 bg-gray-50">
+      {/* Experience Section */}
+      <section id="experience" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Resume</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
             <p className="text-xl text-gray-600 mb-8">
-              My professional journey from biotechnology to AI innovation
+              My professional journey in social work and community wellness
             </p>
             
             {/* Export Options */}
@@ -255,128 +268,192 @@ function App() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Experience */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <Briefcase className="text-blue-600" size={28} />
-                Professional Experience
-              </h3>
-              
-              <div className="space-y-8">
-                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-600">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900">IT Support Candidate</h4>
-                      <p className="text-blue-600 font-semibold">CAPACITI - Cape Town</p>
-                    </div>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      Apr 2025 - Present
-                    </span>
-                  </div>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Provide first-line technical support and troubleshooting assistance</li>
-                    <li>• Develop expertise in AI systems and cloud platforms (Azure AI, Google Cloud)</li>
-                    <li>• Complete advanced certifications in communication, productivity, and AI</li>
-                  </ul>
+          <div className="space-y-8">
+            {/* Current Position */}
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-600">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                <div className="mb-4 md:mb-0">
+                  <h3 className="text-2xl font-bold text-gray-900">Student Wellness Coordinator</h3>
+                  <p className="text-blue-600 font-semibold text-lg">Rosebank College</p>
+                  <p className="text-gray-500 flex items-center gap-2 mt-1">
+                    <MapPin size={16} />
+                    Cape Town, South Africa
+                  </p>
                 </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-600">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900">Vaccine Site Administrator</h4>
-                      <p className="text-green-600 font-semibold">UWC/Ruyterwacht - Cape Town</p>
-                    </div>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      Sep 2021 - Jul 2022
-                    </span>
-                  </div>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Managed daily vaccination appointments and accurate patient recordkeeping</li>
-                    <li>• Coordinated patient flow in high-volume clinic environment</li>
-                    <li>• Assisted healthcare workers during critical COVID-19 vaccination campaign</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-600">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900">Academic Tutor</h4>
-                      <p className="text-purple-600 font-semibold">University of the Western Cape</p>
-                    </div>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      Feb 2016 - Nov 2020
-                    </span>
-                  </div>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Delivered tutorials in biotechnology, life sciences, and laboratory safety</li>
-                    <li>• Provided group and one-on-one academic support to diverse student groups</li>
-                    <li>• Developed innovative teaching methods for complex scientific concepts</li>
-                  </ul>
-                </div>
+                <span className="text-sm text-gray-500 bg-green-100 px-3 py-1 rounded-full font-medium">
+                  June 2024 - Current
+                </span>
               </div>
+              <ul className="text-gray-600 space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Student Council Management: Oversee the council, implement community engagement projects, and manage elections</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Project Oversight: Monitor and evaluate projects, budgets, and resources for impact and future planning</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Training & Engagement: Provide training and ensure active Student Council participation in campus life</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Wellness Programs: Plan and execute wellness initiatives, workshops, and provide counseling services</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Education */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <GraduationCap className="text-blue-600" size={28} />
-                Education
-              </h3>
-              
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">BSc Honours in Biotechnology</h4>
-                  <p className="text-blue-600 font-semibold mb-2">University of the Western Cape</p>
-                  <p className="text-sm text-gray-500 mb-4">Jan 2019 - Dec 2019</p>
-                  <p className="text-gray-600">
-                    Advanced studies in biotechnology with focus on molecular biology, genetics, 
-                    and bioprocessing. Completed with academic distinction.
+            {/* Previous Positions */}
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-green-600">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                <div className="mb-4 md:mb-0">
+                  <h3 className="text-2xl font-bold text-gray-900">Caseworker</h3>
+                  <p className="text-green-600 font-semibold text-lg">The A21 Campaign</p>
+                  <p className="text-gray-500 flex items-center gap-2 mt-1">
+                    <MapPin size={16} />
+                    Cape Town, South Africa
                   </p>
                 </div>
+                <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium">
+                  August 2023 - May 2024
+                </span>
+              </div>
+              <ul className="text-gray-600 space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Provide confidential, trauma-informed, and person-centered psycho-social support to human trafficking victims and survivors</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Assist in interviewing potential trafficking victims and managing crisis situations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Help survivors with documentation, shelter coordination, and repatriation services</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Deliver professional training, presentations, and workshops to diverse audiences</span>
+                </li>
+              </ul>
+            </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Bachelor of Science in Biotechnology</h4>
-                  <p className="text-blue-600 font-semibold mb-2">University of the Western Cape</p>
-                  <p className="text-sm text-gray-500 mb-4">Feb 2015 - Dec 2018</p>
-                  <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
-                    <p className="font-bold text-yellow-800">Graduated Summa Cum Laude</p>
-                  </div>
-                  <p className="text-gray-600">
-                    Comprehensive foundation in biotechnology, molecular biology, biochemistry, 
-                    and research methodologies. Active as Peer Educator in UWC HIV/AIDS Unit.
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-600">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                <div className="mb-4 md:mb-0">
+                  <h3 className="text-2xl font-bold text-gray-900">Social Worker</h3>
+                  <p className="text-purple-600 font-semibold text-lg">Sibanye Stillwater Mine</p>
+                  <p className="text-gray-500 flex items-center gap-2 mt-1">
+                    <MapPin size={16} />
+                    East Driefontein, South Africa
                   </p>
+                </div>
+                <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium">
+                  March 2014 - February 2020
+                </span>
+              </div>
+              <ul className="text-gray-600 space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Managed daily operations of Employee Wellbeing Center, offering confidential counseling and support services</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Facilitated lifestyle and work development interventions including stress management and trauma support</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Planned and coordinated wellness interventions, health promotion programs, and educational sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={16} />
+                  <span>Worked in multidisciplinary team with mine management, medical staff, and HR to provide comprehensive support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Education</h2>
+            <p className="text-xl text-gray-600">
+              Academic foundation in social work and continuous professional development
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                  <GraduationCap className="text-white" size={32} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor of Social Work</h3>
+                  <p className="text-blue-600 font-semibold">University of South Africa (UNISA)</p>
                 </div>
               </div>
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className="text-gray-500" size={16} />
+                <span className="text-gray-600">2013</span>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Comprehensive education in social work theory, practice, and ethics. Specialized training 
+                in community development, counseling techniques, and social intervention strategies.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
+                  <BookOpen className="text-white" size={32} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Matriculation</h3>
+                  <p className="text-green-600 font-semibold">Strategie High School</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className="text-gray-500" size={16} />
+                <span className="text-gray-600">2005</span>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Completed secondary education with strong academic performance, laying the foundation 
+                for higher education and professional development in social sciences.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-white">
+      <section id="skills" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills & Competencies</h2>
             <p className="text-xl text-gray-600">
-              Technical expertise spanning biotechnology, AI, and digital innovation
+              Professional expertise in social work, wellness coordination, and community engagement
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <Code className="text-blue-600" size={28} />
-                Technical Skills
+                <Users className="text-blue-600" size={28} />
+                Core Skills
               </h3>
               <div className="space-y-6">
                 {[
-                  { name: 'Python Programming', level: 90 },
-                  { name: 'Machine Learning', level: 85 },
-                  { name: 'Biotechnology Research', level: 95 },
-                  { name: 'Cloud Platforms (Azure/GCP)', level: 80 },
-                  { name: 'Generative AI & LLMs', level: 85 },
-                  { name: 'Data Analysis', level: 88 }
+                  { name: 'Counseling & Therapy', level: 95 },
+                  { name: 'Crisis Intervention', level: 90 },
+                  { name: 'Community Engagement', level: 92 },
+                  { name: 'Program Management', level: 88 },
+                  { name: 'Training & Facilitation', level: 85 },
+                  { name: 'Case Management', level: 90 }
                 ].map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-2">
@@ -396,103 +473,49 @@ function App() {
 
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <Users className="text-blue-600" size={28} />
-                Professional Skills
+                <Heart className="text-blue-600" size={28} />
+                Specialized Competencies
               </h3>
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 gap-4">
                 {[
-                  { name: 'Research & Development', level: 95 },
-                  { name: 'Technical Support', level: 90 },
-                  { name: 'Academic Instruction', level: 92 },
-                  { name: 'Project Management', level: 85 },
-                  { name: 'Public Health', level: 88 },
-                  { name: 'Leadership & Mentoring', level: 90 }
-                ].map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-semibold text-gray-900">{skill.name}</span>
-                      <span className="text-green-600 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
-                      <div
-                        className="bg-gradient-to-r from-green-600 to-green-400 h-3 rounded-full transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                  'HIV/AIDS and Trauma Counselling',
+                  'Gender-Based Violence Awareness',
+                  'Employee Assistance Programs (EAP)',
+                  'Solution Focused Brief Therapy',
+                  'Supervisory Leadership',
+                  'Event Planning & Coordination',
+                  'Data Analysis and Reporting',
+                  'Cultural Sensitivity',
+                  'Motivational Interviewing',
+                  'Wellness Technology Knowledge'
+                ].map((competency, index) => (
+                  <div key={index} className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="text-green-500" size={20} />
+                      <span className="font-medium text-gray-800">{competency}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Achievements Section */}
-      <section id="achievements" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Achievements</h2>
-            <p className="text-xl text-gray-600">
-              Recognition for academic excellence and professional contributions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Trophy,
-                title: 'Summa Cum Laude Graduate',
-                description: 'Graduated with highest academic distinction from University of the Western Cape',
-                year: '2018',
-                color: 'yellow'
-              },
-              {
-                icon: Award,
-                title: "Dean's Merit Award",
-                description: 'Recognized for outstanding academic achievement and contribution to biotechnology program',
-                year: '2019',
-                color: 'blue'
-              },
-              {
-                icon: Certificate,
-                title: 'AI Certification Excellence',
-                description: 'Completed 25+ professional certifications in AI, ML, and cloud technologies',
-                year: '2025',
-                color: 'green'
-              },
-              {
-                icon: Users,
-                title: 'Academic Mentorship Impact',
-                description: 'Successfully tutored hundreds of students over 4+ years in biotechnology',
-                year: '2016-2020',
-                color: 'purple'
-              },
-              {
-                icon: Heart,
-                title: 'Community Health Leadership',
-                description: 'Led public health initiatives including HIV/AIDS education and COVID-19 coordination',
-                year: '2016-2022',
-                color: 'red'
-              },
-              {
-                icon: Microscope,
-                title: 'Research Excellence',
-                description: 'Contributed to precision medicine research with expertise in DNA extraction and PCR',
-                year: '2018',
-                color: 'indigo'
-              }
-            ].map((achievement, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className={`w-16 h-16 bg-${achievement.color}-600 rounded-full flex items-center justify-center mb-6`}>
-                  <achievement.icon className="text-white" size={32} />
+          {/* Languages */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Languages</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { language: 'English', level: 'Fluent' },
+                { language: 'IsiZulu', level: 'Native' },
+                { language: 'IsiXhosa', level: 'Fluent' },
+                { language: 'Sesotho', level: 'Conversational' }
+              ].map((lang, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                  <h4 className="font-bold text-gray-900 text-lg mb-2">{lang.language}</h4>
+                  <p className="text-blue-600 font-medium">{lang.level}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{achievement.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{achievement.description}</p>
-                <span className={`inline-block bg-${achievement.color}-100 text-${achievement.color}-800 px-3 py-1 rounded-full text-sm font-semibold`}>
-                  {achievement.year}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -501,248 +524,276 @@ function App() {
       <section id="certificates" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Certificates</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Certificates & Registrations</h2>
             <p className="text-xl text-gray-600">
-              Continuous learning in AI, technology, and professional development
+              Professional certifications and continuous learning achievements
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'AI and Public Health',
-                issuer: 'DeepLearning.AI',
-                date: 'June 2025',
-                credential: '6KDTWKFKJD2F',
-                description: 'Advanced course on applying AI in public health contexts, covering epidemiology and health data analysis'
+                title: 'Solution Focused Brief Therapy for Clients in Crisis',
+                issuer: 'Solution Focused Institute',
+                date: '2024',
+                type: 'Specialized Training',
+                color: 'blue'
               },
               {
-                title: 'Advanced Learning Algorithms',
-                issuer: 'DeepLearning.AI, Stanford',
-                date: 'June 2025',
-                credential: 'ZLTHKT1TX3UK',
-                description: 'Comprehensive training in advanced ML algorithms including neural networks and ensemble methods'
+                title: 'Employee Assistance Programmes Certificate',
+                issuer: 'University of Pretoria',
+                date: '2019',
+                type: 'Professional Certificate',
+                color: 'green'
               },
               {
-                title: 'AI on Microsoft Azure',
-                issuer: 'Microsoft',
-                date: 'June 2025',
-                credential: '5A501UU9S8IW',
-                description: 'Professional certification in Azure AI services, cognitive services, and cloud ML solutions'
+                title: 'Supervisory Leadership Development Certificate',
+                issuer: 'Gordon Institute of Business Science',
+                date: '2017',
+                type: 'Leadership Training',
+                color: 'purple'
               },
               {
-                title: 'Python for Data Science & AI',
-                issuer: 'IBM',
-                date: 'June 2025',
-                credential: 'OXSPKCIQ10VV',
-                description: 'Comprehensive Python programming for data science libraries and AI development'
+                title: 'TEFL/TESOL Certificate',
+                issuer: 'The International TEFL Organization',
+                date: 'Certified',
+                type: 'Teaching Qualification',
+                color: 'orange'
               },
               {
-                title: 'Generative AI with LLMs',
-                issuer: 'DeepLearning.AI, AWS',
-                date: 'May 2025',
-                credential: 'M73DK66V13D6',
-                description: 'Advanced training in generative AI, transformer architectures, and LLM implementation'
+                title: 'SACSSP Registration',
+                issuer: 'South African Council for Social Service Professions',
+                date: 'Active',
+                type: 'Professional Registration',
+                color: 'red'
               },
               {
-                title: 'Introduction to Responsible AI',
-                issuer: 'Google Cloud',
-                date: 'June 2025',
-                credential: 'TAMRDJ9016B2',
-                description: 'Ethics and responsible practices in AI development, covering bias mitigation and fairness'
+                title: 'SAOSWA Membership',
+                issuer: 'South African Organisation of Social Workers in Addictions',
+                date: 'Active',
+                type: 'Professional Membership',
+                color: 'indigo'
               }
             ].map((cert, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white">
+              <div key={index} className={`bg-gradient-to-br from-${cert.color}-50 to-${cert.color}-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+                <div className={`bg-gradient-to-r from-${cert.color}-600 to-${cert.color}-700 p-6 text-white`}>
                   <div className="flex items-center gap-3 mb-2">
-                    <Certificate size={24} />
-                    <h3 className="text-xl font-bold">{cert.title}</h3>
+                    <Award size={24} />
+                    <h3 className="text-lg font-bold">{cert.title}</h3>
                   </div>
-                  <p className="text-blue-100">{cert.issuer}</p>
+                  <p className={`text-${cert.color}-100`}>{cert.issuer}</p>
                 </div>
                 <div className="p-6">
-                  <p className="text-sm text-gray-500 mb-3">{cert.date}</p>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{cert.description}</p>
-                  <p className="text-xs text-gray-400 font-mono">ID: {cert.credential}</p>
-                  <div className="mt-4">
-                    <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                      Verified
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-sm text-gray-500">{cert.date}</span>
+                    <span className={`inline-block bg-${cert.color}-100 text-${cert.color}-800 px-3 py-1 rounded-full text-sm font-semibold`}>
+                      {cert.type}
                     </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="text-green-500" size={16} />
+                    <span className="text-sm text-gray-600">Verified</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 inline-block">
-              <p className="text-blue-800 flex items-center gap-2">
-                <Lightbulb size={20} />
-                Showing 6 of 25+ completed certifications. Full portfolio available upon request.
-              </p>
-            </div>
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Projects & Initiatives</h2>
+            <p className="text-xl text-gray-600">
+              Highlighting impactful projects and community initiatives I've led or contributed to
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Student Wellness Program',
+                organization: 'Rosebank College',
+                description: 'Comprehensive wellness program including mental health support, crisis intervention, and community engagement initiatives for students.',
+                impact: '500+ students supported',
+                icon: Users,
+                color: 'blue'
+              },
+              {
+                title: 'Human Trafficking Survivor Support',
+                organization: 'The A21 Campaign',
+                description: 'Trauma-informed care and comprehensive support services for survivors of human trafficking, including shelter coordination and repatriation.',
+                impact: '50+ survivors assisted',
+                icon: Heart,
+                color: 'red'
+              },
+              {
+                title: 'Employee Wellbeing Center',
+                organization: 'Sibanye Stillwater Mine',
+                description: 'Managed comprehensive employee assistance program providing counseling, crisis intervention, and wellness education for mining employees.',
+                impact: '2000+ employees served',
+                icon: Building,
+                color: 'green'
+              },
+              {
+                title: 'COVID-19 Vaccination Coordination',
+                organization: 'UWC/Ruyterwacht',
+                description: 'Coordinated vaccination appointments, managed patient flow, and maintained accurate records during critical vaccination campaign.',
+                impact: '1000+ vaccinations coordinated',
+                icon: CheckCircle,
+                color: 'purple'
+              },
+              {
+                title: 'Community Health Education',
+                organization: 'Various Organizations',
+                description: 'HIV/AIDS education, gender-based violence awareness, and health promotion programs across multiple communities.',
+                impact: 'Multiple communities reached',
+                icon: Lightbulb,
+                color: 'orange'
+              },
+              {
+                title: 'Statistical Data Collection',
+                organization: 'Statistics South Africa',
+                description: 'Led field operations team for national census data collection, managing supervisors and fieldworkers across enumeration areas.',
+                impact: 'District-wide coverage',
+                icon: TrendingUp,
+                color: 'indigo'
+              }
+            ].map((project, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <div className={`bg-gradient-to-r from-${project.color}-600 to-${project.color}-700 p-6 text-white`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <project.icon size={28} />
+                    <h3 className="text-xl font-bold">{project.title}</h3>
+                  </div>
+                  <p className={`text-${project.color}-100 font-medium`}>{project.organization}</p>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className={`bg-${project.color}-100 text-${project.color}-800 px-3 py-1 rounded-full text-sm font-semibold`}>
+                      {project.impact}
+                    </span>
+                    <Target className={`text-${project.color}-600`} size={20} />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Insights Section */}
-      <section id="insights" className="py-20 bg-gray-50">
+      <section id="insights" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Industry Insights</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Insights</h2>
             <p className="text-xl text-gray-600">
-              My thoughts on the intersection of biotechnology, AI, and the future of healthcare
+              My thoughts on social work, wellness, and community development
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <div className="space-y-8">
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                    <Brain className="text-white" size={24} />
+                    <Heart className="text-white" size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">AI in Biotechnology</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">The Future of Workplace Wellness</h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  The convergence of artificial intelligence and biotechnology represents one of the most 
-                  promising frontiers in modern science. From drug discovery to personalized medicine, 
-                  AI is revolutionizing how we approach biological challenges.
+                  The modern workplace is evolving to recognize the critical importance of employee mental health 
+                  and wellbeing. Organizations that invest in comprehensive wellness programs see improved productivity, 
+                  reduced absenteeism, and higher employee satisfaction.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  My experience in both fields has shown me that the key to successful integration lies 
-                  in understanding the biological context behind the data. AI models are only as good 
-                  as the biological insights that inform their design and interpretation.
+                  My experience across different sectors has shown that successful wellness programs require a 
+                  holistic approach, combining individual support with systemic organizational changes.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                    <TrendingUp className="text-white" size={24} />
+                    <Users className="text-white" size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Future of Healthcare</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Trauma-Informed Care</h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Healthcare is undergoing a digital transformation that will fundamentally change how 
-                  we prevent, diagnose, and treat diseases. The integration of genomics, AI, and 
-                  personalized medicine is creating unprecedented opportunities for precision healthcare.
+                  Working with survivors of human trafficking has reinforced my belief in the power of 
+                  trauma-informed care. This approach recognizes the widespread impact of trauma and 
+                  integrates knowledge about trauma into policies, procedures, and practices.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  I believe the future lies in democratizing access to these advanced technologies, 
-                  ensuring that communities worldwide can benefit from the latest scientific breakthroughs.
+                  Every interaction becomes an opportunity for healing when we approach it with understanding, 
+                  patience, and respect for the individual's journey.
                 </p>
               </div>
             </div>
 
             <div className="space-y-8">
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                    <Zap className="text-white" size={24} />
+                    <Lightbulb className="text-white" size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Emerging Technologies</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Community-Centered Approach</h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Technologies like CRISPR gene editing, synthetic biology, and quantum computing are 
-                  reshaping the biotechnology landscape. These tools offer unprecedented precision and 
-                  capability in manipulating biological systems.
+                  Effective social work requires understanding that individuals exist within complex systems 
+                  of relationships and communities. Sustainable change happens when we address not just 
+                  individual needs but also the broader social determinants of wellbeing.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  The challenge lies not just in developing these technologies, but in ensuring they 
-                  are applied ethically and responsibly, with proper consideration for their societal impact.
+                  My work in various settings has taught me that empowering communities to identify and 
+                  address their own challenges leads to more lasting and meaningful outcomes.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
                     <Target className="text-white" size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Career Philosophy</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Professional Philosophy</h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  My career is driven by a simple principle: use science and technology to make a 
-                  meaningful difference in people's lives. Whether through research, education, or 
-                  community service, I strive to bridge the gap between cutting-edge science and 
-                  practical applications.
+                  My approach to social work is grounded in the belief that every person has inherent dignity 
+                  and the capacity for growth and change. I strive to create safe, supportive environments 
+                  where individuals can explore their challenges and develop their strengths.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  I believe in the power of interdisciplinary collaboration and continuous learning. 
-                  The most innovative solutions often emerge at the intersection of different fields.
+                  Continuous learning and adaptation are essential in this field. Each client, each situation 
+                  teaches us something new about the human experience and resilience.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Current Interests */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          {/* Current Focus Areas */}
+          <div className="bg-gray-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-              <Globe className="text-blue-600" size={28} />
-              Current Research Interests
+              <TrendingUp className="text-blue-600" size={28} />
+              Current Focus Areas
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                'AI-driven drug discovery',
-                'Precision medicine applications',
-                'Biomarker identification',
-                'Healthcare accessibility',
-                'Ethical AI in healthcare',
-                'Community health informatics',
-                'Genomic data analysis',
-                'Digital health solutions'
-              ].map((interest, index) => (
-                <div key={index} className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-                  <p className="text-blue-800 font-semibold">{interest}</p>
+                'Student Mental Health',
+                'Crisis Intervention',
+                'Community Engagement',
+                'Wellness Program Development',
+                'Trauma Recovery',
+                'Leadership Development',
+                'Cultural Competency',
+                'Digital Wellness Tools'
+              ].map((focus, index) => (
+                <div key={index} className="bg-white border border-blue-200 rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                  <p className="text-blue-800 font-semibold">{focus}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Gallery</h2>
-            <p className="text-xl text-gray-600">
-              Professional moments, research activities, and community engagement
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: Microscope, title: 'Laboratory Research', description: 'Precision Medicine Lab Work' },
-              { icon: GraduationCap, title: 'Graduation', description: 'UWC Graduation Ceremony' },
-              { icon: Users, title: 'Academic Tutoring', description: 'Student Mentorship Sessions' },
-              { icon: Heart, title: 'Community Service', description: 'Public Health Initiatives' },
-              { icon: Code, title: 'AI Training', description: 'Technology Workshops' },
-              { icon: Award, title: 'Recognition', description: "Dean's Merit Award" }
-            ].map((item, index) => (
-              <div key={index} className="group relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="aspect-square flex flex-col items-center justify-center p-8">
-                  <item.icon className="text-gray-500 mb-4" size={64} />
-                  <h3 className="text-xl font-bold text-gray-700 mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-center">{item.description}</p>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-200">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <div className="bg-blue-50 border-2 border-dashed border-blue-300 rounded-2xl p-12">
-              <Camera className="mx-auto text-blue-400 mb-4" size={48} />
-              <p className="text-blue-600 text-lg mb-4">Upload new photos here</p>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
-                Choose Photos
-              </button>
             </div>
           </div>
         </div>
@@ -754,7 +805,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact</h2>
             <p className="text-xl text-gray-600">
-              Let's connect and explore opportunities in biotechnology and AI innovation
+              Let's connect and explore opportunities in social work and wellness
             </p>
           </div>
 
@@ -762,52 +813,48 @@ function App() {
             <div className="space-y-8">
               <div className="bg-white p-8 rounded-2xl shadow-lg flex items-center gap-6">
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Linkedin className="text-white" size={32} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">LinkedIn</h3>
-                  <p className="text-gray-600 mb-2">Connect with me professionally</p>
-                  <a
-                    href="https://linkedin.com/in/siposetu-mazitshana-117604293"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-700 font-semibold"
-                  >
-                    linkedin.com/in/siposetu-mazitshana-117604293
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-2xl shadow-lg flex items-center gap-6">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="text-white" size={32} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
                   <p className="text-gray-600 mb-2">Send me a message</p>
                   <a
-                    href="mailto:sethumazitsh@gmail.com"
+                    href="mailto:sisandamazitshana1@gmail.com"
+                    className="text-blue-600 hover:text-blue-700 font-semibold"
+                  >
+                    sisandamazitshana1@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-lg flex items-center gap-6">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone className="text-white" size={32} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
+                  <p className="text-gray-600 mb-2">Call or WhatsApp</p>
+                  <a
+                    href="tel:+27788350000"
                     className="text-green-600 hover:text-green-700 font-semibold"
                   >
-                    sethumazitsh@gmail.com
+                    +27 78 835 0000
                   </a>
                 </div>
               </div>
 
               <div className="bg-white p-8 rounded-2xl shadow-lg flex items-center gap-6">
                 <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Github className="text-white" size={32} />
+                  <Linkedin className="text-white" size={32} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">GitHub</h3>
-                  <p className="text-gray-600 mb-2">View my code and projects</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">LinkedIn</h3>
+                  <p className="text-gray-600 mb-2">Connect professionally</p>
                   <a
-                    href="https://github.com/Siposetu-Mazitshana"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
                     className="text-purple-600 hover:text-purple-700 font-semibold"
                   >
-                    github.com/Siposetu-Mazitshana
+                    Connect on LinkedIn
                   </a>
                 </div>
               </div>
@@ -869,7 +916,7 @@ function App() {
                     id="message"
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-vertical"
-                    placeholder="Tell me about your project or opportunity..."
+                    placeholder="Tell me about your opportunity or project..."
                   ></textarea>
                 </div>
                 <button
@@ -890,38 +937,34 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Siposetu Mihle Lelethu Mazitshana</h3>
-              <p className="text-gray-300 mb-2">Biotechnology Professional & AI Technology Specialist</p>
-              <p className="text-gray-400">Bridging science and technology for innovative solutions</p>
+              <h3 className="text-2xl font-bold mb-4">Sisanda Mazitshana</h3>
+              <p className="text-gray-300 mb-2">Social Worker & Wellness Coordinator</p>
+              <p className="text-gray-400">Dedicated to enhancing well-being and fostering supportive communities</p>
             </div>
             <div className="flex justify-center md:justify-end space-x-6">
               <a
-                href="https://linkedin.com/in/siposetu-mazitshana-117604293"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:sisandamazitshana1@gmail.com"
                 className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="mailto:sethumazitsh@gmail.com"
-                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
               >
                 <Mail size={24} />
               </a>
               <a
-                href="https://github.com/Siposetu-Mazitshana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors duration-200"
+                href="tel:+27788350000"
+                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
               >
-                <Github size={24} />
+                <Phone size={24} />
+              </a>
+              <a
+                href="#"
+                className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-200"
+              >
+                <Linkedin size={24} />
               </a>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              &copy; 2025 Siposetu Mihle Lelethu Mazitshana. All rights reserved.
+              &copy; 2025 Sisanda Mazitshana. All rights reserved.
             </p>
           </div>
         </div>
